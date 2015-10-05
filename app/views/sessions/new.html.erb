@@ -1,0 +1,15 @@
+<%= form_for :session, :url => login_path, :method => :post do |f| %> 	
+<h1> Log in </h1>
+<%= flash[:notice] %>
+  <%= f.label :email %>
+  <%= f.text_field :email %><br/><br/>
+   <%= f.label :password %>
+  <%#= f.password_field :password %><br/>
+
+
+  <div class="actions">
+    <br/>
+    <%= f.submit "Log in" %>
+  </div>
+
+<% end %>

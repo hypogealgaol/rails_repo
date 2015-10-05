@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Maker:</strong>
+  <%= @jeans.maker %>
+</p>
+
+<p>
+  <strong>Denim:</strong>
+  <%= @jeans.denim %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @jeans.color %>
+</p>
+
+<%= link_to 'Edit', edit_jeans_path(@jeans) %> |
+<%= link_to 'Back', jeans_index_path %>

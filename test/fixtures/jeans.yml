@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  maker: MyString
+  denim: false
+  color: MyString
+
+two:
+  maker: MyString
+  denim: false
+  color: MyString
