@@ -6,6 +6,7 @@ namespace: import_csv do
 		CSV.foreach('example.csv', :headers => true) do |row|
 			#create model not using scaffold to represent items in csv
 			#remove whitespace before and after strings
+			#create automatically saves
 			restauraunt = Restauraunt.create({
 				
 				:
