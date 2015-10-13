@@ -11,7 +11,8 @@ class User
 
   #validates :password, :presence => { :message}
   validates :password, :presence => true, length: {maximum: 20, too_long: "%{count} characters is the maximum allowed"}
-  validates :email, :presence => true, format: {with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
+  validates :email, :presence => true, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
+  
 
 end
 
