@@ -1,5 +1,6 @@
 class Jeans
-	
+
+	#use bootstrap on the frontend
   include Mongoid::Document
 
   belongs_to :user
@@ -9,4 +10,6 @@ class Jeans
   field :color, type: String
 
   validates :maker, :presence => true
+
+
 end
