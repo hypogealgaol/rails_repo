@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show #sss2208
+    #
   end
 
   # GET /users/new
