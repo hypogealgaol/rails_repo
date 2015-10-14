@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  include SessionsHelper
 
   skip_before_filter :require_user, :only => [:new, :create, :login]
 
@@ -6,30 +7,23 @@ class SessionsController < ApplicationController
     #@user = User.new
   end
 
-  def create
-    user = User.find_by(email: params[:session][:email])
-    puts "tried to find user"
+  def create #login post
+    user = User.find_by(email: params[:session][:email], password: params[:session][:password])
     if user
-      puts "userfound: successful login" #testing
-      session[:user_id] = user.id
-      session[:user_email] = user.email
-      redirect_to users_path
+      log_in user
+      redirect_to user
     else
       flash[:notice] = "Unsuccessful login"
       puts "unsuccessful login" #testing
-      render "new" #renders a different template within the same controller
+      render 'new' #renders a different template within the same controller
     end  
-  end
-  
-  def login
-    @user = User.login
-    redirect_to users_path
   end
   
 
   def destroy
     #ends the session var
     session[:user_id] = nil
+    session[:user_email] = nil
     redirect_to root_url
     flash[:notice] = "You just logged out"
   end

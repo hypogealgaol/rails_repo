@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   def current_user
     if @current_user.nil?
       puts "current user is nil"
-      puts session[:user_id]
       @current_user = User.find(session[:user_id]) if session[:user_id]
     end
   end
@@ -18,5 +17,9 @@ class ApplicationController < ActionController::Base
       return true
     end
     redirect_to root_url
+  end
+
+  def logged_in?
+    !current_user.nil?
   end
 end
