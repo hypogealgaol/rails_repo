@@ -1,4 +1,4 @@
-namespace: import_csv do
+namespace :import_csv do
 	desc "imports the cvs and then does something with it"
 	task :check_rating do
 		puts "starting to read in the csv"
@@ -7,11 +7,6 @@ namespace: import_csv do
 			#create model not using scaffold to represent items in csv
 			#remove whitespace before and after strings
 			#create automatically saves
-			restauraunt = Restauraunt.create({
-				
-				:
-
-			})
 
 		end
 
