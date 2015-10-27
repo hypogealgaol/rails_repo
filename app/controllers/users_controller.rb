@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show #sss2208
-    #
+    @user = User.find(params[:id])
   end
 
   # GET /users/new
