@@ -4,7 +4,7 @@ class AuthenticationController < ApplicationController
   def create
   	if user = User.authenticate(params[:username])
   		session[:current_user_id] = user.id
-  		redirect_to 
+  		redirect_to root_url
 
   end
 

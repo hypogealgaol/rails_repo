@@ -1,6 +1,6 @@
 <%= form_for :session, :url => login_path, :method => :post do |f| %> 	
 <h1> Log in </h1>
-<%= flash[:notice] %>
+<%= flash[:notice] %><br/>
   <%= f.label :email %>
   <%= f.text_field :email %><br/><br/>
    <%= f.label :password %>

@@ -7,6 +7,7 @@ namespace :import_csv do
 			#create model not using scaffold to represent items in csv
 			#remove whitespace before and after strings
 			#create automatically saves
+			#can access with Model.field = row['title of field']
 
 		end
 

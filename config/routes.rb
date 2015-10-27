@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'homepage/new'
+
+  get 'homepage/create'
+
   resources :users
+  resources :jeans
+  resources :pizza
 
 
   get 'welcome/index'
