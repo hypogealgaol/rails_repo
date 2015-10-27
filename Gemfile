@@ -23,6 +23,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # sss2208: adding mongoid
 gem 'mongoid', '~> 5.0.0'
 
+#added bootstrap
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

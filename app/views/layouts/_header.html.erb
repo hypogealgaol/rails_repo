@@ -1,4 +1,6 @@
-<% if !current_user.nil? %>
+
+<%= link_to 'Home', root_url %> |
+<% if logged_in? %>
 
 	<h2>You are logged in as: <%= current_user.first_name %></h2>
 

@@ -6,7 +6,7 @@ module SessionsHelper
     #if @current_user.nil?
     #  @current_user = User.find(session[:user_id]) if session[:user_id]
     if @current_user.nil?
-   	 @current_user ||= User.find_by(id: session[:user_id]) # i could also do find if session[:user_d] becase of exception
+   	 @current_user = User.find_by(id: session[:user_id]) # i could also do find if session[:user_d] becase of exception
    	else
    		@current_user #ruby convention
     end
@@ -21,6 +21,10 @@ module SessionsHelper
   	session.delete(:user_id)
   	session.delete(:user_email)
   	@current_user = nil
+  end
+  
+  def logged_in?
+    !current_user.nil?
   end
 
 
