@@ -1,6 +1,9 @@
 class User
   include Mongoid::Document
 
+  friendly_id :email
+
+
   has_many :jeans
   embeds_many :pizza
 
@@ -24,6 +27,7 @@ class User
   		end
   	end
   end
+
 
 end
 

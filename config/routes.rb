@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'homepage/create'
 
-  resources :users
+  resources :users, param: :email
   resources :jeans
   resources :pizza
 
