@@ -2,6 +2,7 @@ module SessionsHelper
 
   # Logs in the given user.
    def log_in(user)
+    puts "[SESSION_HELPER] login"
     session[:user_id] = user.id
     session[:user_email] = user.email
   end

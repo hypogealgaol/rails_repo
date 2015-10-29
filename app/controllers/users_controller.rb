@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy] #before a user is created we don't want to show edit update destr
-  skip_before_filter :require_user, :only => [:create, :new]
+  before_filter :require_user, :except => [:create, :new]
   
   # GET /users
   # GET /users.json
@@ -35,10 +35,11 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    puts "[USER_CONTROLLER] create"
     @user = User.new(user_params)
     #set default privilege. anyone named sinjihn is an admin
     if(@user.first_name == "sinjihn")
-      puts "admin privileges!!!!!!!!!!!!!!"
+      puts "[USER_CONTROLLER] admin privileges accepted"
       @user.update_attribute(:privilege, true)
     else 
       @user.update_attribute(:privilege, false)
@@ -46,6 +47,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save #if succesfully saved to db
+        puts "[USER_CONTROLLER] user.save" 
         log_in @user
         format.html { redirect_to @user, success: 'User was successfully created. Automatically logged in' }
         format.json { render :show, status: :created, location: @user } #should render homepage
@@ -88,6 +90,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password) #password?
+      params.require(:user).permit(:first_name, :last_name, :email, :password_digest, :password_confirmation) #password?
     end
 end
