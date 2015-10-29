@@ -1,6 +1,6 @@
 class User
   include Mongoid::Document
-
+  include ActiveModel::SecurePassword
 
   has_many :jeans
   embeds_many :pizza
@@ -11,7 +11,7 @@ class User
   field :email, type: String
   field :password_digest, type: String
   field :password_confirmation, type: String
-  field :privileges, type: Boolean
+  field :privilege, type: Boolean
   
   
   #validates :password, :presence => { :message}

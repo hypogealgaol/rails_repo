@@ -37,10 +37,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     #set default privilege. anyone named sinjihn is an admin
-    if(user.first_name == "sinjihn")
-      @user.privilege = true; 
+    if(@user.first_name == "sinjihn")
+      puts "admin privileges!!!!!!!!!!!!!!"
+      @user.update_attribute(:privilege, true)
     else 
-      @user.privilege = false;
+      @user.update_attribute(:privilege, false)
     end
 
     respond_to do |format|
