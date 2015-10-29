@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
 
   def create #login post
     user = User.find_by(email: params[:session][:email], password: params[:session][:password])
-    if user
+    if user && user.authenticate(params[:session][:password]) #authenticate the password
       puts 'logging in user'
       log_in user
-      redirect_to user
+      redirect_to :controller => 'users', :action => 'homepage', :user => user
     else
       flash[:notice] = "Login Unsuccessful"
       render 'new' #renders a different template within the same controller

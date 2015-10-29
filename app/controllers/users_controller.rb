@@ -11,12 +11,21 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show #sss2208
-    @user = User.find_by(email: params[:email])
+    @user = User.find(params[:id])
   end
+
+  def homepage
+    @user = User.find_by(email: session[:user_email])
+  end
+  
 
   # GET /users/new
   def new
     @user = User.new
+  end
+
+  def show_jeans
+    
   end
 
   # GET /users/1/edit
@@ -32,7 +41,7 @@ class UsersController < ApplicationController
       if @user.save
         log_in @user
         format.html { redirect_to @user, success: 'User was successfully created. Automatically logged in' }
-        format.json { render :show, status: :created, location: @user }
+        format.json { render :show, status: :created, location: @user } #should render homepage
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -59,7 +68,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: '' }
       format.json { head :no_content }
     end
   end

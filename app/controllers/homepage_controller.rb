@@ -4,4 +4,8 @@ class HomepageController < ApplicationController
 
   def create
   end
+
+  def index
+  	 @user = User.find_by(email: params[:email])
+  end
 end

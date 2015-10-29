@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'homepage/create'
 
-  resources :users, param: :email
+  resources :users
   resources :jeans
   resources :pizza
 
@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/destroy'
   get 'sessions/login'
+  get 'homepage' => "users#homepage", :as => "homepage"
+  match 'users/homepage' => 'users#homepage', via: [:get, :post], :as => :userhome
+
 
 
   get "signup" => "users#new", :as => "signup"  #this means that  /signup redirects to users controller calling the new method, as is the name of the route
@@ -21,9 +24,9 @@ Rails.application.routes.draw do
 #so this means that we have signup_url and signup_path
 
 
-  get 'login' => 'sessions#new'
-  post "login" => "sessions#create"
-  get "logout" => "sessions#destroy", :as => "logout"
+  get  'login' => 'sessions#new'
+  post 'login' => "sessions#create"
+  get  "logout" => "sessions#destroy", :as => "logout"
 
   #root of the site
   root 'welcome#index'
