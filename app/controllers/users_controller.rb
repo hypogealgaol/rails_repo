@@ -36,9 +36,15 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    #set default privilege. anyone named sinjihn is an admin
+    if(user.first_name == "sinjihn")
+      @user.privilege = true; 
+    else 
+      @user.privilege = false;
+    end
 
     respond_to do |format|
-      if @user.save
+      if @user.save #if succesfully saved to db
         log_in @user
         format.html { redirect_to @user, success: 'User was successfully created. Automatically logged in' }
         format.json { render :show, status: :created, location: @user } #should render homepage

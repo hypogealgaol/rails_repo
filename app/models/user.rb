@@ -11,6 +11,7 @@ class User
   field :email, type: String
   field :password_digest, type: String
   field :password_confirmation, type: String
+  field :privileges, type: Boolean
   
   
   #validates :password, :presence => { :message}
