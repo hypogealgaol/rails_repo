@@ -1,0 +1,3 @@
+-password auth --> when i use update attribute it isn't filtered? using has_secure_password but it doesn't filter it
+
+-skip before filter failing? password confirmation? 

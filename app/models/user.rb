@@ -1,4 +1,6 @@
-class User
+require 'bcrypt'
+
+class User 
   include Mongoid::Document
   include ActiveModel::SecurePassword
 
@@ -9,12 +11,14 @@ class User
   field :first_name, type: String
   field :last_name, type: String
   field :email, type: String
-  field :password_digest, type: String
+  field :password, type: String
+  field :password_confirmation, type: String
   field :privilege, type: Boolean
   
   
-  #validates :password, :presence => { :message}
-  validates :password_digest, :confirmation =>true, :presence => true, length: {minimum: 6, maximum: 20, too_long: "%{count} characters is the maximum allowed"}
+  validates :password, :confirmation =>true, :presence => true, length: {minimum: 6, maximum: 20, too_long: "%{count} characters is the maximum allowed"}
+  validates_confirmation_of :password
+  validates :password_confirmation, :presence =>true
   validates :email, :presence => true, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
   validates_uniqueness_of :email
   validates :first_name, :presence => true

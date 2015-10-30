@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
   def create #login post
     puts "[SESSIONS_CONTROLLER] create"
-    user = User.find_by(email: params[:session][:email], password_digest: params[:session][:password])
+    user = User.find_by(email: params[:session][:email], password: params[:session][:password])
     if user && user.authenticate(params[:session][:password]) #authenticate the password
       puts 'logging in user'
       log_in user
