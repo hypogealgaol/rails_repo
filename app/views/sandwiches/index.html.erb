@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sandwiches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sandwiches.each do |sandwich| %>
+      <tr>
+        <td><%= link_to 'Show', sandwich %></td>
+        <td><%= link_to 'Edit', edit_sandwich_path(sandwich) %></td>
+        <td><%= link_to 'Destroy', sandwich, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sandwich', new_sandwich_path %>

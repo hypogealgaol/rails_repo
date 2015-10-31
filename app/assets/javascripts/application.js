@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require cocoon
 //= require jquery_ujs
+//= require bootstrap
 //= require bootstrap
 //= require_tree .

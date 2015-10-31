@@ -1,6 +1,8 @@
-<h1>Welcome, <%= current_user.first_name %> <%= current_user.last_name %>!</h1>
+<h1>Welcome to your homepage, <%= current_user.first_name %> <%= current_user.last_name %>!</h1><br/>
 
 <%#= render 'form' %>
+Add a Pair of Jeans<br/>
+Add the types of pizza you like<br/><br/>
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>

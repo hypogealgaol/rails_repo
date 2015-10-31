@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @gyro.user %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @gyro.type %>
+</p>
+
+<p>
+  <strong>Tomato:</strong>
+  <%= @gyro.tomato %>
+</p>
+
+<%= link_to 'Edit', edit_gyro_path(@gyro) %> |
+<%= link_to 'Back', gyros_path %>

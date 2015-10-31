@@ -1,0 +1,29 @@
+<%= form_for(@gyro) do |f| %>
+  <% if @gyro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gyro.errors.count, "error") %> prohibited this gyro from being saved:</h2>
+
+      <ul>
+      <% @gyro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :tomato %><br>
+    <%= f.check_box :tomato %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

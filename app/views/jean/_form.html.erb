@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :maker %><br>
+    <%= f.label :make, 'Who made your jeans?' %><br>
     <%= f.text_field :maker %>
   </div>
   <div class="field">
-    <%= f.label :denim %><br>
-    <%= f.text_field :denim %>
+    <%= f.label :denim, 'Denim?' %><br>
+    <%= f.check_box :denim %>
   </div>
   <div class="field">
-    <%= f.label :color %><br>
+    <%= f.label :color, 'What Color are they?' %><br>
     <%= f.text_field :color %>
   </div>
   <div class="actions">

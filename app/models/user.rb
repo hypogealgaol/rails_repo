@@ -6,7 +6,8 @@ class User
   include ActiveModel::SecurePassword
 
   has_many :jeans
-  embeds_many :pizza
+  has_many :gyros
+  has_many :lists
   has_secure_password
 
   field :first_name, type: String

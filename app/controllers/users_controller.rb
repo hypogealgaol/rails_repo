@@ -17,11 +17,17 @@ class UsersController < ApplicationController
   def homepage
     @user = User.find_by(email: session[:user_email])
   end
+
+  def build_gyro
+
+  end
+
   
 
   # GET /users/new
   def new
     @user = User.new
+    @gyro = @user.gyros.build
   end
 
   def show_jeans
