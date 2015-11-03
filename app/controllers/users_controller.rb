@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @user = User.new
   end
 
   # GET /users/1
@@ -18,8 +19,15 @@ class UsersController < ApplicationController
     @user = User.find_by(email: session[:user_email])
   end
 
-  def build_gyro
+  def gyro
+    @user = current_user
+    gyro = @user.gyros
 
+  end
+
+  def jean
+    @user = current_user
+    jean = @user.jeans
   end
 
   
@@ -27,7 +35,8 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @gyro = @user.gyros.build
+    gyro = @user.gyros.build
+    jean = @user.jeans.build
   end
 
   def show_jeans
@@ -41,8 +50,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    puts "[USER_CONTROLLER] create"
-    @user = User.new(user_params)
+      @user = User.new(user_params)
     #set default privilege. anyone named sinjihn is an admin
     if(@user.first_name == "sinjihn")
       puts "[USER_CONTROLLER] admin privileges accepted"

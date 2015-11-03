@@ -4,15 +4,14 @@ Rails.application.routes.draw do
   resources :gyros
   resources :sandwiches
   resources :pizzas
-  resources :pizzas
+  resources :jeans
+  
   get 'homepage/new'
 
   get 'homepage/create'
 
-  resources :users, :has_many => :gyros, :has_many => :lists, :has_many => :jeans
-  resources :jeans
-  resources :pizza
-
+  resources :users, :has_many => :gyros, :has_many => :lists, :has_many => :jeans 
+  
 
   get 'welcome/index'
   get 'sessions/new'

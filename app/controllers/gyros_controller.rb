@@ -1,4 +1,5 @@
 class GyrosController < ApplicationController
+  respond_to :html, :xml, :json
   before_action :set_gyro, only: [:show, :edit, :update, :destroy]
 
   # GET /gyros
@@ -14,7 +15,7 @@ class GyrosController < ApplicationController
 
   # GET /gyros/new
   def new
-    @gyro = Gyro.new
+    @gyro = Gyro.find(params[:id]) #params[:id] is a placeholder for now until i figure out what the user params are
   end
 
   # GET /gyros/1/edit
