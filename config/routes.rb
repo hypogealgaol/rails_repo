@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :jeans
   resources :lists
   resources :gyros
   resources :sandwiches

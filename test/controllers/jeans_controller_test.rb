@@ -17,8 +17,8 @@ class JeansControllerTest < ActionController::TestCase
   end
 
   test "should create jeans" do
-    assert_difference('Jeans.count') do
-      post :create, jeans: { color: @jeans.color, denim: @jeans.denim, maker: @jeans.maker }
+    assert_difference('Jean.count') do
+      post :create, jeans: {  }
     end
 
     assert_redirected_to jeans_path(assigns(:jeans))
@@ -35,15 +35,15 @@ class JeansControllerTest < ActionController::TestCase
   end
 
   test "should update jeans" do
-    patch :update, id: @jeans, jeans: { color: @jeans.color, denim: @jeans.denim, maker: @jeans.maker }
+    patch :update, id: @jeans, jeans: {  }
     assert_redirected_to jeans_path(assigns(:jeans))
   end
 
   test "should destroy jeans" do
-    assert_difference('Jeans.count', -1) do
+    assert_difference('Jean.count', -1) do
       delete :destroy, id: @jeans
     end
 
-    assert_redirected_to jeans_index_path
+    assert_redirected_to jeans_path
   end
 end

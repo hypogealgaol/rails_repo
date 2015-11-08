@@ -1,1 +1,1 @@
-json.extract! @jeans, :id, :maker, :denim, :color, :created_at, :updated_at
+json.extract! @jean, :id, :maker, :denim :created_at, :updated_at

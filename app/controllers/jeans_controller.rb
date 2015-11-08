@@ -1,13 +1,10 @@
 class JeansController < ApplicationController
   before_action :set_jean, only: [:show, :edit, :update, :destroy]
 
-  # GET /jeans
+  # GET /jeans_paramss
   # GET /jeans.json
   def index
-    if logged_in?
-      @jeans = current_user.jeans
-    end
-    @jean = Jean.new
+    @jeans = Jean.all
   end
 
   # GET /jeans/1
@@ -18,8 +15,6 @@ class JeansController < ApplicationController
   # GET /jeans/new
   def new
     @jean = Jean.new
-    @jean.user = current_user
-
   end
 
   # GET /jeans/1/edit
@@ -33,8 +28,8 @@ class JeansController < ApplicationController
 
     respond_to do |format|
       if @jean.save
-        format.html { redirect_to @jean, notice: 'Jeans was successfully created.' }
-        format.json { render :show, status: :created, location: @jeans }
+        format.html { redirect_to @jean, notice: 'Jean was successfully created.' }
+        format.json { render :show, status: :created, location: @jean }
       else
         format.html { render :new }
         format.json { render json: @jean.errors, status: :unprocessable_entity }
@@ -46,8 +41,8 @@ class JeansController < ApplicationController
   # PATCH/PUT /jeans/1.json
   def update
     respond_to do |format|
-      if @jean.update(jeans_params)
-        format.html { redirect_to @jean, notice: 'Jeans was successfully updated.' }
+      if @jean.update(jean_params)
+        format.html { redirect_to @jean, notice: 'Jean was successfully updated.' }
         format.json { render :show, status: :ok, location: @jean }
       else
         format.html { render :edit }
@@ -61,7 +56,7 @@ class JeansController < ApplicationController
   def destroy
     @jean.destroy
     respond_to do |format|
-      format.html { redirect_to jean_index_url, notice: 'Jeans was successfully destroyed.' }
+      format.html { redirect_to jeans_url, notice: 'Jean was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,11 +64,11 @@ class JeansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jean
-      @jean = Jeans.find(params[:id])
+      @jean = Jean.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jean_params
-      params.require(:jean).permit(:maker, :denim, :color)
+      params.require(:jean).permit(:maker, :denim)
     end
 end

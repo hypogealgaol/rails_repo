@@ -13,6 +13,9 @@
 //= require jquery
 //= require cocoon
 //= require jquery_ujs
+//= require foundation
 //= require bootstrap
 //= require bootstrap
 //= require_tree .
+
+$(function(){ $(document).foundation(); });

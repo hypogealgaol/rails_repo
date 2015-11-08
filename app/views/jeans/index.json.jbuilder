@@ -1,4 +1,4 @@
-json.array!(@jeans) do |jeans|
-  json.extract! jeans, :id, :maker, :denim, :color
-  json.url jeans_url(jeans, format: :json)
+json.array!(@jeans) do |jean|
+  json.extract! jean, :id, :maker, :denim
+  json.url jean_url(jean, format: :json)
 end
