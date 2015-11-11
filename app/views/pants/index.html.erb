@@ -16,9 +16,9 @@
       <tr>
         <td><%= pant.maker %></td>
         <td><%= pant.quality %></td>
-        <td><%= link_to 'Show', pant %></td>
-        <td><%= link_to 'Edit', edit_pant_path(pant) %></td>
-        <td><%= link_to 'Destroy', pant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_pant_path(@user, pant) %></td>
+        <td><%= link_to 'Edit', edit_user_pant_path(@usre, pant) %></td>
+        <td><%= link_to 'Destroy', [@user, pant], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>  
 
-<%= link_to 'New Pant', new_use_pant_path(@user) %>
+<%#= link_to 'New Pant', new_user_pants_path(@user) %>

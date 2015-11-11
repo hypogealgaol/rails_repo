@@ -6,17 +6,19 @@ class PantsController < ApplicationController
   # GET /pants
   # GET /pants.json
   def index
-    @pants = current_user.pants.all
+    @pants = @user.pants.all
   end
 
   # GET /pants/1
   # GET /pants/1.json
   def show
+    @pant = @parent.pants.find(params[:id])
+
   end
 
   # GET /pants/new
   def new
-    @pant = Pant.new
+    @pant = @user.pants.new
   end
 
   # GET /pants/1/edit
@@ -26,13 +28,12 @@ class PantsController < ApplicationController
   # POST /pants
   # POST /pants.json
   def create
-    @pant = Pant.new(pant_params)
-    u = current_user
+    @pant = @user.pant.new(pant_params)
 
 
     respond_to do |format|
       if @pant.save
-        format.html { redirect_to @pant, notice: 'Pant was successfully created.' }
+        format.html { redirect_to [@user, @pant], notice: 'Pant was successfully created.' }
         format.json { render :show, status: :created, location: @pant }
       else
         format.html { render :new }
@@ -77,6 +78,6 @@ class PantsController < ApplicationController
     end
 
     def load_parent
-      @user = User.find(params[:user_id])
+      @user = current_user
     end
 end

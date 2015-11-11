@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
 
   get "signup" => "users#new", :as => "signup"  #this means that  /signup redirects to users controller calling the new method, as is the name of the route
-
+  get "newpants" => "pants#create", :as => "newpants"
 #so this means that we have signup_url and signup_path
 
 

@@ -1,4 +1,4 @@
-<%= form_for(@pant) do |f| %>
+<%= form_for([@user, @pant]) do |f| %>
   <% if @pant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pant.errors.count, "error") %> prohibited this pant from being saved:</h2>
