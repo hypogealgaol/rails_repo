@@ -1,10 +1,13 @@
 class JeansController < ApplicationController
   before_action :set_jean, only: [:show, :edit, :update, :destroy]
+  before_filter :require_user, :except => [:create, :new]
+
 
   # GET /jeans_paramss
   # GET /jeans.json
   def index
     @jeans = Jean.all
+    @jean = Jean.new
   end
 
   # GET /jeans/1

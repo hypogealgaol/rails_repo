@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
 
-  resources :jeans
+  resources :pants
   resources :lists
   resources :gyros
   resources :sandwiches
   resources :pizzas
-  resources :jeans
   
   get 'homepage/new'
 
   get 'homepage/create'
 
-  resources :users, :has_many => :gyros, :has_many => :lists, :has_many => :jeans 
+  resources :users, :has_many => :gyros, :has_many => :lists, :has_many => :pants
   
 
   get 'welcome/index'

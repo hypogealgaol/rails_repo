@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Maker:</strong>
+  <%= @pant.maker %>
+</p>
+
+<p>
+  <strong>Quality:</strong>
+  <%= @pant.quality %>
+</p>
+
+<%= link_to 'Edit', edit_pant_path(@pant) %> |
+<%= link_to 'Back', pants_path %>

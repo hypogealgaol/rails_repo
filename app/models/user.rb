@@ -5,7 +5,7 @@ class User
   include Mongoid::Attributes::Dynamic #??
   include ActiveModel::SecurePassword
 
-  has_many :jeans
+  has_many :pants
   has_many :gyros
   has_many :lists
   has_secure_password
