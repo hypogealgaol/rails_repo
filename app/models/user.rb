@@ -1,9 +1,13 @@
 require 'bcrypt'
+require 'carrierwave/orm/activerecord'
 
 class User 
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic #??
   include ActiveModel::SecurePassword
+  extend CarrierWave::Mount
+  mount_uploader :picture, PictureUploader
+
 
   has_many :pants
   has_many :gyros
@@ -17,7 +21,8 @@ class User
   field :password_digest, type: String
   field :password_confirmation, type: String
   field :privilege, type: Boolean
-  
+  field :picture, type: String
+
   
   validates :password, :confirmation =>true, :presence => true, length: {minimum: 6, maximum: 20, too_long: "%{count} characters is the maximum allowed"}
   #validates :password_confirmation, :presence =>true

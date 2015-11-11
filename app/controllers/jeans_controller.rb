@@ -6,8 +6,7 @@ class JeansController < ApplicationController
   # GET /jeans_paramss
   # GET /jeans.json
   def index
-    @jeans = Jean.all
-    @jean = Jean.new
+    @jeans = current_user.jeans.all
   end
 
   # GET /jeans/1

@@ -1,8 +1,12 @@
 <h1>Welcome to your homepage, <%= current_user.first_name %> <%= current_user.last_name %>!</h1><br/>
 
 <%#= render 'form' %>
+<%= image_tag @user.picture %><br/>
+
 Add a Pair of Pants you wear<br/>
 Add a Type of Gyro you like<br/><br/>
+Change your profile picture<br/><br/>
+
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>

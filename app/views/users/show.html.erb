@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<p>  
+  <strong>Profile Picture:</strong>
+  <%= image_tag @user.picture_url.to_s %>
+
+</p>
+
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -13,14 +19,6 @@
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
-</p>
-
-<p>
-  <strong>Gyros</strong></br>
-  <strong>_______________</strong>
-  <% @user.gyros.each do |gyro| %>
-  	<%= gyro.id %>
-  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

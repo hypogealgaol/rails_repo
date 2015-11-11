@@ -1,10 +1,12 @@
 class PantsController < ApplicationController
   before_action :set_pant, only: [:show, :edit, :update, :destroy]
+  before_filter :load_parent
+
 
   # GET /pants
   # GET /pants.json
   def index
-    @pants = Pant.all
+    @pants = current_user.pants.all
   end
 
   # GET /pants/1
@@ -25,6 +27,8 @@ class PantsController < ApplicationController
   # POST /pants.json
   def create
     @pant = Pant.new(pant_params)
+    u = current_user
+
 
     respond_to do |format|
       if @pant.save
@@ -70,5 +74,9 @@ class PantsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def pant_params
       params.require(:pant).permit(:maker, :quality)
+    end
+
+    def load_parent
+      @user = User.find(params[:user_id])
     end
 end
