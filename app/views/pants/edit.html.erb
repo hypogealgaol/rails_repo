@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @pant %> |
-<%= link_to 'Back', pants_path %>
+<%= link_to 'Show', user_pant_path(@user, @pant) %> |
+<%= link_to 'Back', user_pants_path(@user) %>
