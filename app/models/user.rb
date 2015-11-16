@@ -10,7 +10,6 @@ class User
 
 
   has_many :pants
-  has_many :gyros
   has_many :lists
   has_secure_password
 

@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
 
-  resources :pants
-  resources :lists
-  resources :gyros
-  resources :sandwiches
-  resources :pizzas
+  
   
   get 'homepage/new'
 
   get 'homepage/create'
 
-  resources :users, :has_many => :gyros, :has_many => :lists, :has_many => :pants
+  resources :users do
+    resources :pants
+    resources :lists
+    resources :gyros
+    resources :sandwiches
+    resources :pizzas
+  end
+
   
 
   get 'welcome/index'
@@ -24,7 +27,7 @@ Rails.application.routes.draw do
 
 
   get "signup" => "users#new", :as => "signup"  #this means that  /signup redirects to users controller calling the new method, as is the name of the route
-  get "newpants" => "pants#create", :as => "newpants"
+  # get "newpants" => "pants#create", :as => "newpants"
 #so this means that we have signup_url and signup_path
 
 

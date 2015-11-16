@@ -12,7 +12,7 @@ class PantsController < ApplicationController
   # GET /pants/1
   # GET /pants/1.json
   def show
-    @pant = @parent.pants.find(params[:id])
+    @pant = @user.pants.find(params[:id])
 
   end
 
@@ -28,7 +28,7 @@ class PantsController < ApplicationController
   # POST /pants
   # POST /pants.json
   def create
-    @pant = @user.pant.new(pant_params)
+    @pant = @user.pants.build(pant_params)
 
 
     respond_to do |format|

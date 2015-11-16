@@ -3,6 +3,6 @@ class Pant
   field :maker, type: String
   field :quality, type: String
   belongs_to :user
-  attr_accessible :user_id
+  validates :user, :presence => true
 
 end
